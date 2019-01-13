@@ -1,0 +1,29 @@
+static int[] climbingLeaderboard(int[] scores, int[] alice) {
+
+        List tempList = new ArrayList();
+        int[] result = new int[alice.length];
+        for(int i=0;i<scores.length;i++){
+
+            tempList.add(scores[i]);
+        }
+        
+        System.out.println(tempList);
+        //remove duplicates
+        Set<Integer> set = new LinkedHashSet();
+        set.addAll(tempList);
+        tempList.clear();
+        tempList.addAll(set);
+        System.out.println(tempList);
+        for(int i=0;i<alice.length;i++){
+         int rank = Collections.binarySearch(tempList,alice[i],Collections.reverseOrder());
+         System.out.println("Rank-->"+rank);
+         if(rank > 0){
+             rank++;
+         }
+         result[i]=Math.abs(rank);   
+        }
+        System.out.print("rank-->"+result);
+        return result;
+
+
+    }
