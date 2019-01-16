@@ -48,3 +48,69 @@ for (int a = alice.length - 1, s = 0; a >= 0; a--) {
 }
 
 return results;
+
+
+
+====
+   
+        int current = input[0];
+        boolean found = false;
+        List list = new ArrayList();
+
+        for (int i = 0; i < input.length; i++) {
+            if (current == input[i] && !found) {
+                found = true;
+            } else if (current != input[i]) {
+                System.out.print(" " + current);
+                current = input[i];
+                found = false;
+                list.add(current);
+            }
+        }
+        System.out.print(" " + current);
+        list.add(current);
+        System.out.println("size of array-->"+list.size()+"\n");
+        for (int i = 0; i < list.size(); i++) {            
+            System.out.print(" " +list.get(i) );
+        }
+        int[] scores= new int[list.size()];
+        Iterator<Integer> iterator = list.iterator();
+        for (int i = 0; i < scores.length; i++)
+        {
+            scores[i] = iterator.next().intValue();
+        }
+        System.out.println("scores -->");
+        for(int a=0;a<scores.length;a++){
+            System.out.print(" "+scores[a]);
+        }
+    
+
+        
+
+
+
+        int results[] = new int[alice.length];
+        boolean matched =false;
+        for(int j=0;j<alice.length;j++){
+            for(int i =scores.length-1;i>=0;i--){
+                System.out.println("Comparing -->"+alice[j]+"==="+scores[i]);
+                if(alice[j]<=scores[i]){
+                    if(alice[j]==scores[i]){
+                        results[j]=i+1;
+                    }else{
+                        results[j]=i+1+1;
+                    }                    
+                    matched=true;
+                    System.out.println("i-->"+i);
+                    break;
+                }
+            }
+            if(!matched){
+                    results[j]=1;
+                }
+            System.out.println("j-->" + results[j]);
+        }
+        for(int k=0; k<results.length;k++){
+                System.out.print(" " + results[k]);
+        }
+===
