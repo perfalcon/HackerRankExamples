@@ -1,0 +1,33 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class DuplicateWordRegex {
+
+	//private static final int Pattern.CASE_INSENSITIVE = 0;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String[] lines ={"Goodbye bye bye world world world",
+				"Sam went went to to to his business",
+				"Reya is is the the best player in eye eye game",
+				"in inthe",
+				"Hello hello Ab aB"};
+		int numSentences=lines.length;
+		//for(int i=0;i<lines.length;i++){
+		while (numSentences-- > 0) {
+			
+			System.out.println(lines[numSentences]);
+			//Pattern p = Pattern.compile("[a-zA-Z]+");
+			Pattern p = Pattern.compile("\\b(\\w+)(?:\\W+\\1\\b)+",Pattern.CASE_INSENSITIVE);
+			Matcher m = p.matcher(lines[numSentences]); 
+			while(m.find()){
+				System.out.println(m.group()+"======"+m.group(1));
+				
+				lines[numSentences]=lines[numSentences].replaceAll(m.group(), m.group(1));
+			}
+			System.out.println("--->"+lines[numSentences]);
+		}
+	}
+
+}
