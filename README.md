@@ -1,5 +1,6 @@
 # HackerRankExamples
 All the Solved / solving problems
+# Solved:
 1.	BreakingBestWorstRecords.java
 2.	ExtraLongFactorials.java
 3.	JavaDatatypes.java
