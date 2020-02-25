@@ -7,3 +7,4 @@ All the Solved / solving problems
 4.	JavaLoopsI.java
 5.	JavaLoopsII.java
 6.	JavaOutputFormatting.java
+7.  Java_regex_IP_Addr.java - (https://www.hackerrank.com/challenges/java-regex/problem?h_r=internal-search)
