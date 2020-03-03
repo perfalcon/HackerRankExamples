@@ -30,7 +30,8 @@ boolean leapYear = false;
         }
         int days=leapYear?244:243;
         int day = 256-days;
-        
+        if(year==1918)
+			day = day+13;
         return day+"."+"09"+"."+year;
     }
 
