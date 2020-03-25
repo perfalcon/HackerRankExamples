@@ -1,32 +1,45 @@
-import java.util.Scanner;
+package hackerRank;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 
 public class JavaSubstringComparisons {
-
-    public static String getSmallestAndLargest(String s, int k) {
-        String smallest = "";
-        String largest = "";
-        
-        // Complete the function
-        // 'smallest' must be the lexicographically smallest substring of length 'k'
-        // 'largest' must be the lexicographically largest substring of length 'k'
-        java.util.ArrayList<String> substr= new java.util.ArrayList<String>();
-        for(int i=0;i<s.length()&&(i+k<=s.length());i++) {
-        substr.add(String.copyValueOf(java.util.Arrays.copyOfRange(s.toCharArray(), i, i+k)));
+	
+	public static void main(String args[]) {
+		String s="welcometojava";
+		ArrayList<String> substr= new ArrayList<String>();
+		
+		
+		/*
+		 * for(int j=0;j<s.length();j++) { for(int i=j+1;i<=s.length();i++) {
+		 * //System.out.print(n[j]+""+n[i]+" "); char
+		 * n2[]=Arrays.copyOfRange(s.toCharArray(), j, i);
+		 * System.out.println(Arrays.toString(n2)); } //System.out.println(); };
+		 */		 
+		int m=3;//Length of substring
+		
+		for(int i=0;i<s.length()&&(i+m<=s.length());i++) {                     
+            char n2[]=Arrays.copyOfRange(s.toCharArray(), i, i+m);
+             System.out.println(Arrays.toString(n2));
+             //substr.add(Arrays.toString(n2));
+             substr.add(String.copyValueOf(n2));
         }
-        substr.sort(String::compareTo);
-        smallest=substr.get(0);
-        largest=substr.get(substr.size()-1);
+		
+		System.out.println(substr);
+		substr.sort(String::compareTo);
+		System.out.println(substr);
+		/*
+		 * Iterator<String> iter=substr.iterator(); while(iter.hasNext()) {
+		 * System.out.println(iter.next()); }
+		 */
+		
+		System.out.println(substr.get(0));
+		System.out.println(substr.get(substr.size()-1));
+		
+		
+		
+		
+	}
 
-        return smallest + "\n" + largest;
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String s = scan.next();
-        int k = scan.nextInt();
-        scan.close();
-      
-        System.out.println(getSmallestAndLargest(s, k));
-    }
 }
