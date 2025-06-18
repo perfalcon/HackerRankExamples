@@ -1,0 +1,25 @@
+https://leetcode.com/problems/longest-consecutive-sequence/
+class Solution {
+    public int longestConsecutive(int[] nums) {
+
+        if(nums.length==0){
+            return 0;
+        }
+        int[] b = Arrays.stream(nums).sorted().toArray();
+        int counter = 1;
+        for (int x = 0; x < b.length; x++) {
+         
+            if (x + 1 < b.length) {
+                if (b[x] == b[x + 1])
+                    continue;
+                if (b[x + 1] - b[x] == 1) {
+                    counter++;
+                } else {
+                    break;
+                }
+            }
+
+        }
+        return counter;
+    }
+}
